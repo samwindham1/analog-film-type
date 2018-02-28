@@ -1,0 +1,16 @@
+#header {
+  height: 48px;
+  background-color: cadetblue;
+  color: white;
+  margin: 0;
+  padding: 12px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+.title {
+  line-height: 48px;
+  margin-left: 24px;
+}

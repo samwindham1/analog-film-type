@@ -1,3 +1,7 @@
 #film {
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
+}
+
+.post {
+  display: inline-block;
 }

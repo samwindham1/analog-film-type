@@ -10,13 +10,37 @@ import { ApiService } from '../../api.service';
 
 export class FilmComponent implements OnInit {
   private posts;
+  private film_types;
 
   constructor(private api: ApiService) { }
 
+  onFilmSelect(film) {
+    console.log(film);
+    if (film === 'default') {
+      this.api.get_all().subscribe(res => {
+        this.posts = res.slice(0, 10);
+        console.log(this.posts);
+      });
+    } else {
+      this.api.get_film(film).subscribe(res => {
+        this.posts = res.slice(0, 10);
+        console.log(this.posts);
+      })
+    }
+  }
+
   ngOnInit() {
-    this.api.get_all().subscribe(d => {
-      this.posts = d.slice(0, 25);
+    this.api.get_all().subscribe(res => {
+      this.posts = res.slice(0, 10);
       console.log(this.posts);
     });
+    this.api.get_film_types().subscribe(f => {
+      this.film_types = Object.keys(f.films).map(film => {
+        let obj = f.films[film];
+        obj['key'] = film;
+        return obj;
+      });
+      console.log(this.film_types);
+    })
   }
 }

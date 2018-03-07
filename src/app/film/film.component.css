@@ -2,6 +2,10 @@
   /* border: 1px dashed black; */
 }
 
+#film select:invalid {
+  color: gray;
+}
+
 .post {
   display: inline-block;
 }

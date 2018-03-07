@@ -1,5 +1,11 @@
 <div id="film">
-  <h1>Film</h1>
+  <div>
+    <select (change)="onFilmSelect($event.target.value)" required>
+      <option [value]="null" selected disabled>Choose a film type...</option>
+      <option [value]="'default'">All</option>
+      <option *ngFor="let film of film_types;" [value]="film.key">{{film.name}}</option>
+    </select>
+  </div>
   <div *ngFor="let post of posts;" class="post">
     <img src="{{post.url}}" alt="" height="200">
   </div>

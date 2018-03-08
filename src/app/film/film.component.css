@@ -1,17 +1,26 @@
 #film {
   /* border: 1px dashed black; */
+  padding: 12px;
 }
 
-.container {
-  border: 1px dashed #666;
+.toolbar {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  height: 20px;
+  /* width: 50%; */
+  margin: 0;
+  padding: 26px;
+  padding-right: 34px;
+  background-color: white;
 }
+
+.container {}
 
 #film select:invalid {
   color: gray;
-}
-
-.post-container {
-  width: 100px;
 }
 
 .post {

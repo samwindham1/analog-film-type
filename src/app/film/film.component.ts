@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 
+import { ScrollEvent } from 'ngx-scroll-event';
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-film',
   templateUrl: './film.component.html',
@@ -34,9 +37,19 @@ export class FilmComponent implements OnInit {
     }
   }
 
-  onLoadMore() {
-    this.posts.concat(this.data.slice(this.loaded_count, this.loaded_count + this.init_count));
+  loadMore() {
+    let next = this.data.slice(this.loaded_count, this.loaded_count + this.init_count);
+    this.posts = this.posts.concat(next);
     this.loaded_count += this.init_count;
+    console.log('loaded:', next);
+    console.log(this.posts);
+  }
+  loadDebounced = _.debounce(this.loadMore, 1000, { 'trailing': false, 'leading': true });
+
+  onBottomScroll(event: ScrollEvent) {
+    if (event.isReachingBottom) {
+      this.loadDebounced();
+    }
   }
 
   ngOnInit() {

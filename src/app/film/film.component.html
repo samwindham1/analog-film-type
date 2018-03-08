@@ -1,16 +1,14 @@
 <div id="film">
-  <div class="container col-10">
-    <div>
-      <select (change)="onFilmSelect($event.target.value)" required>
-        <option [value]="null" selected disabled>Choose a film type...</option>
-        <option [value]="'default'">All</option>
-        <option *ngFor="let film of film_types;" [value]="film.key">{{film.name}}</option>
-      </select>
-    </div>
-    <div class="posts-container">
-      <div *ngFor="let post of posts;" class="post">
-        <img class="post-img" src="{{post.url}}" alt="">
-      </div>
+  <div class="toolbar">
+    <select (change)="onFilmSelect($event.target.value)" required>
+      <option [value]="null" selected disabled>Choose a film type...</option>
+      <option [value]="'default'">All</option>
+      <option *ngFor="let film of film_types;" [value]="film.key">{{film.name}}</option>
+    </select>
+  </div>
+  <div class="container col-10" detect-scroll (onScroll)="onBottomScroll($event)" [bottomOffset]="200">
+    <div *ngFor="let post of posts;" class="post">
+      <img class="post-img" src="{{post.url}}" alt="">
     </div>
   </div>
 </div>

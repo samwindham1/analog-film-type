@@ -24,13 +24,13 @@ export class FilmComponent implements OnInit {
     console.log(film);
     if (film === 'default') {
       this.api.get_all().subscribe(res => {
-        this.data = res;
+        this.data = res.posts;
         this.posts = this.data.slice(0, this.init_count);
         console.log(this.posts);
       });
     } else {
       this.api.get_film(film).subscribe(res => {
-        this.data = res;
+        this.data = res.posts;
         this.posts = this.data.slice(0, this.init_count);
         console.log(this.posts);
       })
@@ -54,7 +54,7 @@ export class FilmComponent implements OnInit {
 
   ngOnInit() {
     this.api.get_all().subscribe(res => {
-      this.data = res;
+      this.data = res.posts;
       this.posts = this.data.slice(0, this.init_count);
       console.log(this.posts);
     });

@@ -13,7 +13,8 @@ export class ApiService {
 
   public get_film(film): Observable<any> {
     return Observable.create(observer => {
-      this.http.get('api/db.json').subscribe((db: Array<any>) => {
+      this.http.get('api/db.json').subscribe((db: any) => {
+        console.log(db);
         observer.next(db.filter(post => post.film_type === film));
       })
     });

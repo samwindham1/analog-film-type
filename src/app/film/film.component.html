@@ -9,6 +9,11 @@
   <div class="container col-10" detect-scroll (onScroll)="onBottomScroll($event)" [bottomOffset]="200">
     <div *ngFor="let post of posts;" class="post">
       <img class="post-img" src="{{post.url}}" alt="">
+      <div class="post-details">
+        <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link">
+          {{post.title}}
+        </a>
+      </div>
     </div>
   </div>
 </div>

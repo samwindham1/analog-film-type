@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 })
 
 export class FilmComponent implements OnInit {
+  private initData;
   private data;
   private posts;
   private film_types;
@@ -21,20 +22,23 @@ export class FilmComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   onFilmSelect(film) {
-    console.log(film);
+    console.log("film:", film);
     if (film === 'default') {
-      this.api.get_all().subscribe(res => {
-        this.data = res.posts;
-        this.posts = this.data.slice(0, this.init_count);
-        console.log(this.posts);
-      });
+      this.data = this.initData;
     } else {
-      this.api.get_film(film).subscribe(res => {
-        this.data = res.posts;
-        this.posts = this.data.slice(0, this.init_count);
-        console.log(this.posts);
-      })
+      this.data = this.filterFilm(film);
     }
+    this.posts = this.data.slice(0, this.init_count);
+    console.log(this.posts);
+  }
+
+  filterFilm(film) {
+    let res = this.initData.filter(post => {
+      console.log(post.film_type);
+      return post.film_type === film
+    }
+    );
+    return res;
   }
 
   loadMore() {
@@ -54,17 +58,13 @@ export class FilmComponent implements OnInit {
 
   ngOnInit() {
     this.api.get_all().subscribe(res => {
-      this.data = res.posts;
-      this.posts = this.data.slice(0, this.init_count);
-      console.log(this.posts);
+      this.initData = res;
+      this.onFilmSelect('default');
+      console.log(this.data);
     });
     this.api.get_film_types().subscribe(f => {
-      this.film_types = Object.keys(f.films).map(film => {
-        let obj = f.films[film];
-        obj['key'] = film;
-        return obj;
-      });
-      console.log(this.film_types);
-    })
+      this.film_types = f;
+      console.log('film-types:', this.film_types);
+    });
   }
 }

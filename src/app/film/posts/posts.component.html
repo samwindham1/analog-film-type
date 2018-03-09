@@ -1,0 +1,9 @@
+<div class="container col-10" detect-scroll (onScroll)="add.next($event)" [bottomOffset]="200">
+  <div *ngFor="let post of posts; let i = index" id="{{i}}" class="post" (click)="activatePost(i)" [ngClass]="{'active': active_post === i, 'inactive': active_post >= 0 && active_post !== i}">
+    <img class="post-img" src="{{post.url}}" title="{{(active_post === i)? 'Click to close': 'Click to enlarge'}}">
+    <div class="post-details">
+      <span class="post-details-title" *ngIf="active_post !== i">{{post.title}}</span>
+      <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link" *ngIf="active_post === i" title="reddit.com">{{post.title}}</a>
+    </div>
+  </div>
+</div>

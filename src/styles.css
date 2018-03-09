@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 html, body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 body {
-    padding-top: 78px;
+    padding-top: 84px;
 }
 .scroll-disabled {
   height: 100%;

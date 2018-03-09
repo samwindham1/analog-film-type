@@ -1,12 +1,13 @@
 #header {
   height: 48px;
-  width: 100%;
   padding: 0 12px;
   background-color: black;
   color: white;
-  margin: 0;
+  margin: auto;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
 
@@ -17,6 +18,13 @@ h3 {
 }
 
 .title {
+  float: left;
   line-height: 48px;
-  font-size: 32px;
+  font-size: 28px;
+}
+
+.description {
+  float: right;
+  line-height: 48px;
+  font-size: 14px;
 }

@@ -1,7 +1,7 @@
 <div id="film">
   <div class="menu">
     <div class="container col-10">
-      <div class="film-select dropdown">
+      <div class="item film-select dropdown">
         <div class="dropdown-trigger">
           <button class="button">
             <span>Film Type</span>
@@ -14,15 +14,27 @@
           <option *ngFor="let film of film_types;" [value]="film.id">{{film.name}}</option>
         </div> -->
       </div>
-    </div>
-  </div>
-  <div class="container col-10" detect-scroll (onScroll)="onBottomScroll($event)" [bottomOffset]="200">
-    <div *ngFor="let post of posts; let i = index" id="{{i}}" class="post" (click)="activatePost(i)" [ngClass]="{'active': active_post === i, 'inactive': active_post >= 0 && active_post !== i}">
-      <img class="post-img" src="{{post.url}}" title="{{(active_post === i)? 'Click to close': 'Click to enlarge'}}">
-      <div class="post-details">
-        <span class="post-details-title" *ngIf="active_post !== i">{{post.title}}</span>
-        <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link" *ngIf="active_post === i" title="reddit.com">{{post.title}}</a>
+      <div class="item" title="Top">
+        <button class="button">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+      <div class="item" title="Hot">
+        <button class="button">
+          <i class="fas fa-fire"></i>
+        </button>
+      </div>
+      <div class="item right" title="Large">
+        <button class="button">
+          <i class="fas fa-square"></i>
+        </button>
+      </div>
+      <div class="item right" title="Small">
+        <button class="button">
+          <i class="fas fa-th-large"></i>
+        </button>
       </div>
     </div>
   </div>
+  <app-film-posts [posts]="posts" (add)="onBottomScroll($event)"></app-film-posts>
 </div>

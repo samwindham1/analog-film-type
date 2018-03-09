@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FilmComponent } from './film/film.component';
+import { PostsComponent } from './film/posts/posts.component';
 
 import { environment } from '../environments/environment';
 
@@ -19,7 +20,8 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FilmComponent
+    FilmComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

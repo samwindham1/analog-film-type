@@ -1,12 +1,12 @@
 {
   "name": "analog-film-type",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "webpack-dev-server --port=4200",
     "build": "webpack",
-    "deploy": "npm version patch && firebase deploy",
+    "deploy": "npm run build --prod && npm version patch && firebase deploy",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",

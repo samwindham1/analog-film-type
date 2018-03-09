@@ -4,7 +4,11 @@ html, body {
     font-family: sans-serif;
 }
 body {
-    padding-top: 72px;
+    padding-top: 78px;
+}
+.scroll-disabled {
+  height: 100%;
+  overflow: hidden;
 }
 
 /* For mobile phones: */

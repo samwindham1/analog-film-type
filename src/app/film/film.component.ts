@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ApiService } from '../../api.service';
 
 import { ScrollEvent } from 'ngx-scroll-event';
@@ -19,7 +19,9 @@ export class FilmComponent implements OnInit {
   private init_count = 10;
   private loaded_count = 10;
 
-  constructor(private api: ApiService) { }
+  private active_post = -1;
+
+  constructor(private api: ApiService, private renderer: Renderer2) { }
 
   onFilmSelect(film) {
     console.log("film:", film);
@@ -53,6 +55,15 @@ export class FilmComponent implements OnInit {
   onBottomScroll(event: ScrollEvent) {
     if (event.isReachingBottom) {
       this.loadDebounced();
+    }
+  }
+
+  activatePost(id) {
+    this.active_post = this.active_post !== id ? id : -1;
+    if (this.active_post >= 0) {
+      this.renderer.addClass(document.body, 'scroll-disabled');
+    } else {
+      this.renderer.removeClass(document.body, 'scroll-disabled');
     }
   }
 

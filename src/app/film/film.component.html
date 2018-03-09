@@ -1,18 +1,27 @@
 <div id="film">
-  <div class="toolbar">
-    <select (change)="onFilmSelect($event.target.value)" required>
-      <option [value]="null" selected disabled>Choose a film type...</option>
-      <option [value]="'default'">All</option>
-      <option *ngFor="let film of film_types;" [value]="film.id">{{film.name}}</option>
-    </select>
+  <div class="menu">
+    <div class="container col-10">
+      <div class="film-select dropdown">
+        <div class="dropdown-trigger">
+          <button class="button">
+            <span>Film Type</span>
+            <span class="icon">
+              <i class="fas fa-angle-down"></i>
+            </span>
+          </button>
+        </div>
+        <!-- <div class="dropdown-menu">
+          <option *ngFor="let film of film_types;" [value]="film.id">{{film.name}}</option>
+        </div> -->
+      </div>
+    </div>
   </div>
   <div class="container col-10" detect-scroll (onScroll)="onBottomScroll($event)" [bottomOffset]="200">
-    <div *ngFor="let post of posts;" class="post">
-      <img class="post-img" src="{{post.url}}" alt="">
+    <div *ngFor="let post of posts; let i = index" id="{{i}}" class="post" (click)="activatePost(i)" [ngClass]="{'active': active_post === i, 'inactive': active_post >= 0 && active_post !== i}">
+      <img class="post-img" src="{{post.url}}" title="{{(active_post === i)? 'Click to close': 'Click to enlarge'}}">
       <div class="post-details">
-        <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link">
-          {{post.title}}
-        </a>
+        <span class="post-details-title" *ngIf="active_post !== i">{{post.title}}</span>
+        <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link" *ngIf="active_post === i" title="reddit.com">{{post.title}}</a>
       </div>
     </div>
   </div>

@@ -10,11 +10,13 @@
             </span>
           </button>
         </div>
-        <!-- <div class="dropdown-menu">
-          <option *ngFor="let film of film_types;" [value]="film.id">{{film.name}}</option>
-        </div> -->
+        <div class="dropdown-menu">
+          <ul class="dropdown-menu-list">
+            <li *ngFor="let film of film_types;" (click)="onFilmSelect(film.id)" class="dropdown-menu-item">{{film.name}}</li>
+          </ul>
+        </div>
       </div>
-      <div class="item" title="Top">
+      <div class="item active" title="Top">
         <button class="button">
           <i class="fas fa-arrow-up"></i>
         </button>
@@ -29,7 +31,7 @@
           <i class="fas fa-square"></i>
         </button>
       </div>
-      <div class="item right" title="Small">
+      <div class="item right active" title="Small">
         <button class="button">
           <i class="fas fa-th-large"></i>
         </button>

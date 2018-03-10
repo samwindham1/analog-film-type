@@ -38,9 +38,21 @@
   margin-left: 4px;
 }
 
+.menu .item.active button {
+  color: #7272a1;
+}
+
 .menu .film-select {
   width: 84px;
   margin-right: 20px;
+}
+
+.menu .film-select:hover button {
+  color: #7272a1;
+}
+
+.menu .film-select:hover .dropdown-menu {
+  visibility: visible;
 }
 
 .dropdown-trigger {
@@ -56,8 +68,38 @@
   right: 0;
 }
 
-.button {
+.dropdown-menu {
+  position: relative;
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+  width: 250px;
+}
+
+.dropdown-menu:active {
+  visibility: hidden;
+}
+
+.dropdown-menu-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.dropdown-menu-item {
+  margin: 0;
+  padding: 0 12px;
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #f6f6f6;
   color: #7272a1;
+}
+
+.button {
+  color: #A1A1A1;
   position: relative;
   width: 100%;
   min-width: 24px;

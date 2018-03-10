@@ -38,9 +38,9 @@
   bottom: 0;
   height: 100%;
   max-height: calc(100vh - 126px);
+  max-width: 100vw;
   z-index: 10;
   margin: 0;
-  transition: width height transform top left ease 200ms;
   /* border: 1px dashed black; */
   overflow: visible;
 }
@@ -51,7 +51,6 @@
   height: 100%;
   left: 50%;
   transform: translate(-50%, 0);
-  transition: width height transform top left ease 200ms;
 }
 
 .post.active .post-details {

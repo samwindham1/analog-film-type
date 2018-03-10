@@ -19,6 +19,8 @@ export class FilmComponent implements OnInit {
   private init_count = 10;
   private loaded_count = 10;
 
+  private dropdown_open = false;
+
   constructor(private api: ApiService) { }
 
   onFilmSelect(film) {
@@ -34,7 +36,7 @@ export class FilmComponent implements OnInit {
 
   filterFilm(film) {
     let res = this.initData.filter(post => {
-      console.log(post.film_type);
+      // console.log(post.film_type);
       return post.film_type === film
     }
     );

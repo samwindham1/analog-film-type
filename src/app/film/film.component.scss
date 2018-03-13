@@ -18,54 +18,56 @@
   z-index: 150;
   padding: 0 12px;
   margin: 0;
-  background-color: #eee;
-  /* border-bottom: 1px solid #ccc;
-  border-top: 2px solid #666; */
-}
+  background-color: #eee; // border-bottom: 1px solid #ccc;
+  // border-top: 2px solid #666;
+  .item {
+    float: left;
+    margin-right: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0;
 
-.menu .item {
-  float: left;
-  margin-right: 4px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 14px;
-  padding: 0;
-}
+    &.right {
+      float: right;
+      margin-right: 0;
+      margin-left: 4px;
+    }
 
-.menu .item.right {
-  float: right;
-  margin-right: 0;
-  margin-left: 4px;
-}
+    &.active {
+      button {
+        color: #7272a1;
+      }
+    }
+  }
 
-.menu .item.active button {
-  color: #7272a1;
-}
+  .film-select {
+    margin-right: 20px;
+    width: 84px;
 
-.menu .film-select {
-  width: 84px;
-  margin-right: 20px;
-}
+    &:hover {
+      button {
+        color: #7272a1;
+      }
 
-.menu .film-select:hover button {
-  color: #7272a1;
-}
-
-.menu .film-select:hover .dropdown-menu {
-  visibility: visible;
+      .dropdown-menu {
+        visibility: visible;
+      }
+    }
+  }
 }
 
 .dropdown-trigger {
   height: 30px;
   line-height: 30px;
-}
 
-.dropdown-trigger .icon {
-  position: absolute;
-  line-height: 30px;
-  font-size: 14px;
-  top: 0;
-  right: 0;
+  .icon {
+    position: absolute;
+    line-height: 30px;
+    font-size: 14px;
+    top: 0;
+    right: 0;
+  }
 }
 
 .dropdown-menu {
@@ -74,10 +76,10 @@
   padding: 0;
   margin: 0;
   width: 250px;
-}
 
-.dropdown-menu:active {
-  visibility: hidden;
+  &:active {
+    visibility: hidden;
+  }
 }
 
 .dropdown-menu-list {
@@ -91,11 +93,11 @@
   padding: 0 12px;
   cursor: pointer;
   background-color: #eee;
-}
 
-.dropdown-menu-item:hover {
-  background-color: #f6f6f6;
-  color: #7272a1;
+  &:hover {
+    background-color: #f6f6f6;
+    color: #7272a1;
+  }
 }
 
 .button {
@@ -117,14 +119,14 @@
   outline: none;
   text-transform: uppercase;
   transition: color ease 200ms;
-}
 
-.button span {
-  float: left;
-}
+  span {
+    float: left;
+  }
 
-.button:hover {
-  /* background-color: #eee; */
-  color: black;
-  transition: color ease 200ms;
+  &:hover {
+    /* background-color: #eee; */
+    color: black;
+    transition: color ease 200ms;
+  }
 }

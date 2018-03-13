@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core
 @Component({
   selector: 'app-film-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.scss']
 })
 
 export class PostsComponent {

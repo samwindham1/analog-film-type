@@ -17,15 +17,15 @@ h3 {
   margin: 0;
 }
 
-.homeLink {
+.home-link {
   text-decoration: none;
   color: white;
   transition: color ease 200ms;
-}
 
-.homeLink:hover {
-  color: #E5E2EE;
-  transition: color ease 200ms;
+  &:hover {
+    color: #E5E2EE;
+    transition: color ease 200ms;
+  }
 }
 
 .title {

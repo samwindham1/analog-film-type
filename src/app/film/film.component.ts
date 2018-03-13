@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-film',
   templateUrl: './film.component.html',
-  styleUrls: ['./film.component.css']
+  styleUrls: ['./film.component.scss']
 })
 
 export class FilmComponent implements OnInit {
@@ -20,6 +20,7 @@ export class FilmComponent implements OnInit {
   private loaded_count = 10;
 
   private dropdown_open = false;
+  private min_height = 250;
 
   constructor(private api: ApiService) { }
 
@@ -30,7 +31,8 @@ export class FilmComponent implements OnInit {
     } else {
       this.data = this.filterFilm(film);
     }
-    this.posts = this.data.slice(0, this.init_count);
+    this.posts = this.buildRows(this.data.slice(0, this.init_count));
+    // this.posts = this.data.slice(0, this.init_count);
     console.log(this.posts);
   }
 
@@ -41,6 +43,15 @@ export class FilmComponent implements OnInit {
     }
     );
     return res;
+  }
+
+  buildRows(data) {
+    let out = [];
+    data.map(post => {
+      console.log(post);
+    });
+
+    return data;
   }
 
   loadMore() {

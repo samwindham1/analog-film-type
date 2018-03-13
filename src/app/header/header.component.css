@@ -17,6 +17,17 @@ h3 {
   margin: 0;
 }
 
+.homeLink {
+  text-decoration: none;
+  color: white;
+  transition: color ease 200ms;
+}
+
+.homeLink:hover {
+  color: #E5E2EE;
+  transition: color ease 200ms;
+}
+
 .title {
   float: left;
   line-height: 48px;

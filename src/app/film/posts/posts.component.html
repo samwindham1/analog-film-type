@@ -3,7 +3,10 @@
     <img class="post-img" src="{{post.url}}" title="{{(active_post === i)? 'Click to close': 'Click to enlarge'}}">
     <div class="post-details">
       <span class="post-details-title" *ngIf="active_post !== i">{{post.title}}</span>
-      <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link" *ngIf="active_post === i" title="reddit.com">{{post.title}}</a>
+      <a href="{{'https://www.reddit.com' + post.permalink}}" class="post-details-link" *ngIf="active_post === i" title="reddit.com">
+        {{post.title}}
+        <i class="icon fas fa-link"></i>
+      </a>
     </div>
   </div>
 </div>

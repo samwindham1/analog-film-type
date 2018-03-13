@@ -116,6 +116,7 @@
   -moz-appearance: none;
   outline: none;
   text-transform: uppercase;
+  transition: color ease 200ms;
 }
 
 .button span {
@@ -125,4 +126,5 @@
 .button:hover {
   /* background-color: #eee; */
   color: black;
+  transition: color ease 200ms;
 }

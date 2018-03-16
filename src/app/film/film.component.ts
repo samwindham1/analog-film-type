@@ -17,7 +17,7 @@ export class FilmComponent implements OnInit {
   private film_types;
 
   private init_count = 10;
-  private loaded_count = 10;
+  private loaded_count;
 
   private dropdown_open = false;
   private min_height = 250;
@@ -31,7 +31,8 @@ export class FilmComponent implements OnInit {
     } else {
       this.data = this.filterFilm(film);
     }
-    this.posts = this.buildRows(this.data.slice(0, this.init_count));
+    this.posts = this.buildRows(this.data.slice(0, this.init_count * 2));
+    this.loaded_count = this.posts.length;
     // this.posts = this.data.slice(0, this.init_count);
     console.log(this.posts);
   }
